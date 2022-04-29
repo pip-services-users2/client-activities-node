@@ -21,7 +21,7 @@
     "noAnalyze": true,
     "repository": {
         "type": "git",
-        "url": "ssh://git@github.com:service-users/client-activities-node.git"
+        "url": "ssh://git@github.com:pip-services-users2/client-activities-node.git"
     },
     "license": "MIT",
     "engines": {
