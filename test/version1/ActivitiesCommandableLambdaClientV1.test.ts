@@ -1,9 +1,9 @@
 import { ConfigParams } from 'pip-services3-commons-nodex';
 
 import { ActivitiesClientFixtureV1 } from './ActivitiesClientFixtureV1';
-import { ActivitiesLambdaClientV1 } from '../../src/version1/ActivitiesLambdaClientV1';
+import { ActivitiesCommandableLambdaClientV1 } from '../../src/version1/ActivitiesCommandableLambdaClientV1';
 
-suite('ActivitiesLambdaClient', ()=> {
+suite('ActivitiesCommandableLambdaClient', ()=> {
     let AWS_LAMDBA_ARN = process.env["AWS_LAMDBA_ARN"] || "";
     let AWS_ACCESS_ID = process.env["AWS_ACCESS_ID"] || "";
     let AWS_ACCESS_KEY = process.env["AWS_ACCESS_KEY"] || "";
@@ -24,11 +24,11 @@ suite('ActivitiesLambdaClient', ()=> {
     if (lambdaConfig.getAsNullableString("connection.protocol") != "aws")
         return;
 
-    let client: ActivitiesLambdaClientV1;
+    let client: ActivitiesCommandableLambdaClientV1;
     let fixture: ActivitiesClientFixtureV1;
 
     setup(async () => {
-        client = new ActivitiesLambdaClientV1();
+        client = new ActivitiesCommandableLambdaClientV1();
         client.configure(lambdaConfig);
 
         fixture = new ActivitiesClientFixtureV1(client);

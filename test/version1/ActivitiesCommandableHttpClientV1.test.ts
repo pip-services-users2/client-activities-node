@@ -7,8 +7,8 @@ import { ConsoleLogger } from 'pip-services3-components-nodex';
 
 import { ActivitiesMemoryPersistence } from 'service-activities-node';
 import { ActivitiesController } from 'service-activities-node';
-import { ActivitiesHttpServiceV1 } from 'service-activities-node';
-import { ActivitiesHttpClientV1 } from '../../src/version1/ActivitiesHttpClientV1';
+import { ActivitiesCommandableHttpServiceV1 } from 'service-activities-node';
+import { ActivitiesCommandableHttpClientV1 } from '../../src/version1/ActivitiesCommandableHttpClientV1';
 import { ActivitiesClientFixtureV1 } from './ActivitiesClientFixtureV1';
 
 var httpConfig = ConfigParams.fromTuples(
@@ -17,9 +17,9 @@ var httpConfig = ConfigParams.fromTuples(
     "connection.port", 3000
 );
 
-suite('ActivitiesHttpClientV1', ()=> {
-    let service: ActivitiesHttpServiceV1;
-    let client: ActivitiesHttpClientV1;
+suite('ActivitiesCommandableHttpClientV1', ()=> {
+    let service: ActivitiesCommandableHttpServiceV1;
+    let client: ActivitiesCommandableHttpClientV1;
     let fixture: ActivitiesClientFixtureV1;
 
     suiteSetup(async () => {
@@ -27,19 +27,19 @@ suite('ActivitiesHttpClientV1', ()=> {
         let persistence = new ActivitiesMemoryPersistence();
         let controller = new ActivitiesController();
 
-        service = new ActivitiesHttpServiceV1();
+        service = new ActivitiesCommandableHttpServiceV1();
         service.configure(httpConfig);
 
         let references: References = References.fromTuples(
             new Descriptor('pip-services', 'logger', 'console', 'default', '1.0'), logger,
             new Descriptor('service-activities', 'persistence', 'memory', 'default', '1.0'), persistence,
             new Descriptor('service-activities', 'controller', 'default', 'default', '1.0'), controller,
-            new Descriptor('service-activities', 'service', 'http', 'default', '1.0'), service
+            new Descriptor('service-activities', 'service', 'commandable-http', 'default', '1.0'), service
         );
         controller.setReferences(references);
         service.setReferences(references);
 
-        client = new ActivitiesHttpClientV1();
+        client = new ActivitiesCommandableHttpClientV1();
         client.setReferences(references);
         client.configure(httpConfig);
 

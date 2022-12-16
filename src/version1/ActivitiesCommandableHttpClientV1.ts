@@ -2,12 +2,12 @@ import { ConfigParams } from 'pip-services3-commons-nodex';
 import { FilterParams } from 'pip-services3-commons-nodex';
 import { PagingParams } from 'pip-services3-commons-nodex';
 import { DataPage } from 'pip-services3-commons-nodex';
-import { CommandableGrpcClient } from 'pip-services3-grpc-nodex';
+import { CommandableHttpClient } from 'pip-services3-rpc-nodex';
 
 import { PartyActivityV1 } from './PartyActivityV1';
 import { IActivitiesClientV1 } from './IActivitiesClientV1';
 
-export class ActivitiesCommandableGrpcClientV1 extends CommandableGrpcClient implements IActivitiesClientV1 {
+export class ActivitiesCommandableHttpClientV1 extends CommandableHttpClient implements IActivitiesClientV1 {
 
     constructor(config?: any) {
         super('v1/activities');
@@ -56,5 +56,4 @@ export class ActivitiesCommandableGrpcClientV1 extends CommandableGrpcClient imp
             }
         );
     }
-
 }

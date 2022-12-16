@@ -28,6 +28,7 @@ class ActivitiesGrpcClientV1 extends pip_services3_grpc_nodex_1.GrpcClient {
                 let response = yield this.call('get_party_activities', correlationId, request);
                 if (response.error != null)
                     throw ActivityGrpcConverterV1_1.ActivityGrpcConverterV1.toError(response.error);
+                timing.endTiming();
                 return response
                     ? ActivityGrpcConverterV1_1.ActivityGrpcConverterV1.toPartyActivityPage(response.getPage())
                     : null;
@@ -35,9 +36,6 @@ class ActivitiesGrpcClientV1 extends pip_services3_grpc_nodex_1.GrpcClient {
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -50,6 +48,7 @@ class ActivitiesGrpcClientV1 extends pip_services3_grpc_nodex_1.GrpcClient {
                 let response = yield this.call('log_party_activity', correlationId, request);
                 if (response.error != null)
                     throw ActivityGrpcConverterV1_1.ActivityGrpcConverterV1.toError(response.error);
+                timing.endTiming();
                 return response
                     ? ActivityGrpcConverterV1_1.ActivityGrpcConverterV1.toPartyActivity(response.getActivity())
                     : null;
@@ -57,9 +56,6 @@ class ActivitiesGrpcClientV1 extends pip_services3_grpc_nodex_1.GrpcClient {
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -72,13 +68,11 @@ class ActivitiesGrpcClientV1 extends pip_services3_grpc_nodex_1.GrpcClient {
                 let response = yield this.call('batch_party_activities', correlationId, request);
                 if (response.error != null)
                     throw ActivityGrpcConverterV1_1.ActivityGrpcConverterV1.toError(response.error);
+                timing.endTiming();
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -91,13 +85,11 @@ class ActivitiesGrpcClientV1 extends pip_services3_grpc_nodex_1.GrpcClient {
                 let response = yield this.call('delete_party_activities', correlationId, request);
                 if (response.error != null)
                     throw ActivityGrpcConverterV1_1.ActivityGrpcConverterV1.toError(response.error);
+                timing.endTiming();
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }

@@ -2,15 +2,15 @@ import { ConfigParams } from 'pip-services3-commons-nodex';
 import { FilterParams } from 'pip-services3-commons-nodex';
 import { PagingParams } from 'pip-services3-commons-nodex';
 import { DataPage } from 'pip-services3-commons-nodex';
-import { CommandableGrpcClient } from 'pip-services3-grpc-nodex';
+import { CommandableLambdaClient } from 'pip-services3-aws-nodex';
 
 import { PartyActivityV1 } from './PartyActivityV1';
 import { IActivitiesClientV1 } from './IActivitiesClientV1';
 
-export class ActivitiesCommandableGrpcClientV1 extends CommandableGrpcClient implements IActivitiesClientV1 {
+export class ActivitiesCommandableLambdaClientV1 extends CommandableLambdaClient implements IActivitiesClientV1 {
 
     constructor(config?: any) {
-        super('v1/activities');
+        super('activities');
 
         if (config != null)
             this.configure(ConfigParams.fromValue(config));
@@ -56,5 +56,4 @@ export class ActivitiesCommandableGrpcClientV1 extends CommandableGrpcClient imp
             }
         );
     }
-
 }

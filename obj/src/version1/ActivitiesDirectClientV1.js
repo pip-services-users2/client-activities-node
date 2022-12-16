@@ -21,14 +21,13 @@ class ActivitiesDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'activities.get_party_activities');
             try {
-                return yield this._controller.getPartyActivities(correlationId, filter, paging);
+                let res = yield this._controller.getPartyActivities(correlationId, filter, paging);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -36,14 +35,13 @@ class ActivitiesDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'activities.log_party_activity');
             try {
-                return yield this._controller.logPartyActivity(correlationId, activity);
+                let res = yield this._controller.logPartyActivity(correlationId, activity);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -51,14 +49,13 @@ class ActivitiesDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'activities.batch_party_activities');
             try {
-                return yield this._controller.batchPartyActivities(correlationId, activities);
+                let res = yield this._controller.batchPartyActivities(correlationId, activities);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }
@@ -66,14 +63,13 @@ class ActivitiesDirectClientV1 extends pip_services3_rpc_nodex_1.DirectClient {
         return __awaiter(this, void 0, void 0, function* () {
             let timing = this.instrument(correlationId, 'activities.delete_party_activities');
             try {
-                return yield this._controller.deletePartyActivities(correlationId, filter);
+                let res = yield this._controller.deletePartyActivities(correlationId, filter);
+                timing.endTiming();
+                return res;
             }
             catch (err) {
                 timing.endFailure(err);
                 throw err;
-            }
-            finally {
-                timing.endTiming();
             }
         });
     }

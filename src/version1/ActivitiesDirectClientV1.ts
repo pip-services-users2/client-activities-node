@@ -19,12 +19,12 @@ export class ActivitiesDirectClientV1 extends DirectClient<any> implements IActi
         let timing = this.instrument(correlationId, 'activities.get_party_activities');
 
         try {
-            return await this._controller.getPartyActivities(correlationId, filter, paging);
+            let res = await this._controller.getPartyActivities(correlationId, filter, paging);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -32,12 +32,12 @@ export class ActivitiesDirectClientV1 extends DirectClient<any> implements IActi
         let timing = this.instrument(correlationId, 'activities.log_party_activity');
 
         try {
-            return await this._controller.logPartyActivity(correlationId, activity);
+            let res = await this._controller.logPartyActivity(correlationId, activity);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -45,12 +45,12 @@ export class ActivitiesDirectClientV1 extends DirectClient<any> implements IActi
         let timing = this.instrument(correlationId, 'activities.batch_party_activities');
 
         try {
-            return await this._controller.batchPartyActivities(correlationId, activities);
+            let res = await this._controller.batchPartyActivities(correlationId, activities);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -58,12 +58,12 @@ export class ActivitiesDirectClientV1 extends DirectClient<any> implements IActi
         let timing = this.instrument(correlationId, 'activities.delete_party_activities');
 
         try {
-            return await this._controller.deletePartyActivities(correlationId, filter);
+            let res = await this._controller.deletePartyActivities(correlationId, filter);
+            timing.endTiming();
+            return res;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 

@@ -30,14 +30,13 @@ export class ActivitiesGrpcClientV1 extends GrpcClient implements IActivitiesCli
             if (response.error != null)
                 throw ActivityGrpcConverterV1.toError(response.error);
 
+            timing.endTiming();
             return response
                 ? ActivityGrpcConverterV1.toPartyActivityPage(response.getPage())
                 : null;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -54,14 +53,13 @@ export class ActivitiesGrpcClientV1 extends GrpcClient implements IActivitiesCli
             if (response.error != null)
                 throw ActivityGrpcConverterV1.toError(response.error);
 
+            timing.endTiming();
             return response
                 ? ActivityGrpcConverterV1.toPartyActivity(response.getActivity())
                 : null;
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -77,11 +75,10 @@ export class ActivitiesGrpcClientV1 extends GrpcClient implements IActivitiesCli
 
             if (response.error != null)
                 throw ActivityGrpcConverterV1.toError(response.error);
+            timing.endTiming();
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
@@ -97,11 +94,10 @@ export class ActivitiesGrpcClientV1 extends GrpcClient implements IActivitiesCli
 
             if (response.error != null)
                 throw ActivityGrpcConverterV1.toError(response.error);
+            timing.endTiming();
         } catch (err) {
             timing.endFailure(err);
             throw err;
-        } finally {
-            timing.endTiming();
         }
     }
 
