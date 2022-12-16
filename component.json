@@ -1,6 +1,6 @@
 {
     "name": "client-activities-node",
     "version": "1.0.1",
-    "registry": "pipdevs",
+    "registry": "pipservices",
     "build": 0
 }
