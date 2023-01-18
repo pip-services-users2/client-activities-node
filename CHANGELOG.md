@@ -13,7 +13,7 @@
 * **rest** HTTP/REST client
 * **grpc** gRPC client
 * **direct** Direct client
-* **memory** Memory client
+* **mock** Mock client
 * **lambda** AWS lambda client
 * **unit tests** Unit tests using Mocha and Matcha
 
